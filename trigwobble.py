@@ -1,32 +1,21 @@
-#Trig Wobble Written On Febuary 10, 2023
-
-#Imports
 import math
 import time
 
-#Base List
-l=[]
-def generate(x):
-    l.clear()
-    for i in range(x):
+t = 0 
+l = []
+
+# Variables
+length = 1000
+width = 20
+tisl = 0.01
+step = 0.1
+
+for i in range(length):
+    sinx = math.sin(t/2) * width
+    for j in range(round(sinx) + width):
         l.append(" ")
-
-#Params
-tstep = 0.25
-sleep = 0.01
-l_size = 10
-chara = "_"
-loop = 50
-
-#List Funnies
-t = 0
-siz = len(l)
-
-for i in range(loop):
-    generate(l_size)
-    siz = len(l)
-    tr = (round(math.sin(t)*siz/2))+siz/(10/4.5)
-    l[int(tr)]=chara
-    print(*l)
-    t = t + tstep
-    time.sleep(sleep)
+    l.append("█")
+    print(*l, sep = "")
+    l = []
+    t+=step
+    time.sleep(tisl)
